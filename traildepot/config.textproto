@@ -1,0 +1,9 @@
+server {
+  application_name: "TodoMVC"
+  logs_retention_sec: 604800
+}
+record_apis: [{
+  name: "todos"
+  table_name: "todos"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}]

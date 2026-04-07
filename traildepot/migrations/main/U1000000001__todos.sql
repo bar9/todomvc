@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS todos (
+  id        BLOB PRIMARY KEY NOT NULL CHECK(is_uuid_v7(id)) DEFAULT (uuid_v7()),
+  title     TEXT NOT NULL,
+  completed INTEGER NOT NULL DEFAULT 0,
+  created   INTEGER NOT NULL DEFAULT (UNIXEPOCH()),
+  updated   INTEGER NOT NULL DEFAULT (UNIXEPOCH())
+) STRICT;
+
+CREATE TRIGGER _todos__updated_trigger AFTER UPDATE ON todos FOR EACH ROW
+  BEGIN
+    UPDATE todos SET updated = UNIXEPOCH() WHERE id = OLD.id;
+  END;

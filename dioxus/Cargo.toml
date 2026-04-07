@@ -1,0 +1,14 @@
+[package]
+name = "todomvc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dioxus = { version = "0.7", features = ["web"] }
+serde = { version = "1", features = ["derive"] }
+gloo = { version = "0.11", features = ["net"] }
+wasm-logger = "0.2"
+
+[profile.dev]
+opt-level = 1
+debug = false
