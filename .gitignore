@@ -1,6 +1,7 @@
 # Build output
 target/
 dist/
+dioxus/assets/main.css
 
 # Dependencies
 node_modules/
@@ -8,6 +9,9 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+
+# IDE
+.idea/
 
 # Project-specific
 /architecture.excalidraw
